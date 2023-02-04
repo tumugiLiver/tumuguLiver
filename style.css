@@ -1,0 +1,473 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  font-family: "ヒラギノ角ゴシック";
+  text-align:center"
+}
+
+a {
+  color: indianred;
+  font-weight: bold
+}
+
+li {
+  margin-left: -20px;
+}
+
+/*画面上部白いバー*/
+nav {
+  width: 100%;
+  height: 100px;
+  opacity: 0.9;
+  z-index: 10;
+  position: fixed;
+  background-color: white;
+}
+@media (min-width: 1200px) {
+  nav {
+    height: 100px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    vertical-align: middle;
+  }
+}
+nav .main-flame h1 {
+  font-family: serif;
+  margin: 0px 0 8px 4px;
+}
+nav .main-flame h1 a {
+  color: rgb(92, 179, 205);
+}
+nav .main-flame h1 .main-logo {
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 20px;
+}
+@media (min-width: 1200px) {
+  nav .main-flame h1 .main-logo {
+    font-size: 34px;
+  }
+}
+/*ロゴ*/
+main-icon {
+  height: 200px;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+
+nav .main-flame h1 .main-icon {
+  height: 200px;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+@media (min-width: 1200px) {
+  nav .main-flame h1 .main-icon {
+    height: 64px;
+    width: 64px;
+    margin: 0 8px;
+  }
+}
+nav .main-flame p {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: black;
+  margin-left: 12px;
+}
+@media (min-width: 1200px) {
+  nav .main-flame p {
+    font-size: 14px;
+  }
+}
+nav .index {
+  display: none;
+  font-size: 18px;
+}
+@media (min-width: 1200px) {
+  nav .index {
+    display: inline-block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 45px;
+    padding: 4px 0 4px 0;
+    margin: 20px;
+  }
+}
+nav .index li {
+  list-style: none;
+}
+nav .index a {
+  text-decoration: none;
+}
+nav .index a:hover {
+  opacity: 0.5;
+}
+
+.blank {
+  padding: 38px;
+  margin: 0;
+}
+@media (min-width: 1200px) {
+  .blank {
+    padding: 50px;
+  }
+}
+
+.menu-btn {
+  position: fixed;
+  top: 4px;
+  right: 2px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 56px;
+  width: 56px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 90;
+}
+@media (min-width: 1200px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: indianred;
+  position: absolute;
+}
+
+.menu-btn span:before {
+  bottom: 10px;
+}
+
+.menu-btn span:after {
+  top: 10px;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+  display: none;
+}
+
+.menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%; /*leftの値を変更してメニューを画面外へ*/
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; /*アニメーション設定*/
+  margin-left: 120px;
+}
+.menu-content a:hover {
+  opacity: 0.5;
+}
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 0; /*メニューを画面内へ*/
+}
+
+.menu-content ul {
+  padding: 30px 10px 0;
+}
+
+.menu-content ul li {
+  border-bottom: solid 1px rgba(205, 92, 92, 0.212);
+  list-style: none;
+}
+
+.menu-content ul li a {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: indianred;
+  text-decoration: none;
+  padding: 9px 15px 10px 16px;
+  position: relative;
+}
+
+.menu-content ul li a::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px #ffffff;
+  border-right: solid 2px #ffffff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  position: absolute;
+  right: 11px;
+  top: 16px;
+}
+
+.menu-icon a {
+  font-size: 45px;
+  color: #000;
+}
+
+@media (min-width: 1200px) {
+  #main {
+    padding: 0 70px;
+  }
+}
+#main img {
+  max-width: 600px;
+}
+@media (min-width: 600px) {
+  #main img {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  #main img {
+    max-width: 600px;
+  }
+}
+#main .bx-wrapper {
+  margin-bottom: 40px;
+}
+#main .main-message {
+  font-family: serif;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 5px red, 0 0 5px red;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+@media (min-width: 1200px) {
+  #main .main-message {
+    font-size: 24px;
+  }
+}
+#main p {
+  font-family: serif;
+  text-align: center;
+/*  text-shadow: 0 0 5px red, 0 0 5px red;
+  font-weight: bold;*/
+  font-size: 18px;
+  padding-top: 0;
+  margin-top: 4px;
+}
+
+/*ライバーとは*/
+#Liver {
+  text-align: center;
+  padding: 16px;
+  background-color: #FFF0F5;
+  font-size: 2em;
+}
+#Liver h1 {
+  display: none;
+}
+/*
+#introduction #intro {
+  padding-top: 78px;
+  margin-top: -78px;
+  background-color: #ffe2c6;
+}*/
+@media (min-width: 1200px) {
+  #Liver #live {
+    padding-top: 116px;
+    margin-top: -116px;
+  }
+}
+#Liver .emphasis {
+  font-weight: bold;
+  color: #ff1493;
+}
+
+/*代表の実績*/
+#performance {
+  text-align: center;
+  padding: 16px;
+  background-color: #ffdbb7;
+  font-size: 2em;
+}
+/*
+#performance #perfor {
+  /*padding-top: 78px;
+  margin-top: -78px;
+  background-color: #ffe2c6;
+}*/
+@media (min-width: 1200px) {
+  #performance #perfor {
+    padding-top: 116px;
+    margin-top: -116px;
+  }
+}
+#performance h5 {
+  margin-top: 2px;
+}
+#performance p {
+  margin-bottom: 0;
+}
+#performance p + p {
+  margin-top: 0;
+}
+#performance p + p + p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/*強み*/
+#strength  {
+  text-align: center;
+  padding: 16px;
+  background-color: white;
+  font-size: 2em;
+}
+/*
+#charm #char {
+  /*padding-top: 78px;
+  margin-top: -78px;
+  background-color: #ffe2c6;
+}*/
+
+#strengths {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+}
+
+@media (min-width: 1200px) {
+  #strength  #stren {
+    padding-top: 116px;
+    margin-top: -116px;
+  }
+}
+#strength  .link {
+  color: green;
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 6px;
+}
+#strength  .apeal {
+  margin: 16px;
+}
+#strength  .apeal .twitter {
+  background-color: #1d9bf0;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 8px;
+  margin-top: 0;
+}
+#strength  .apeal .twitter :hover {
+  opacity: 0.5;
+}
+
+/*所属するにあたり*/
+#conditions {
+  text-align: center;
+  padding: 16px;
+  background-color: white;
+  font-size: 2em;
+}
+/*
+#conditions #ques {
+  /*padding-top: 78px;
+  margin-top: -78px;
+  background-color: #ffe2c6;
+}*/
+@media (min-width: 1200px) {
+  #conditions #ques {
+    padding-top: 116px;
+    margin-top: -116px;
+  }
+}
+#conditions h3 {
+  margin-bottom: 4px;
+}
+
+#sns {
+  text-align: center;
+  padding: 16px;
+  background-color:white;
+}
+#sns #sn {
+  padding-top: 78px;
+  margin-top: -78px;
+}
+@media (min-width: 600px) {
+  #sns #sn {
+    padding-top: 94px;
+    margin-top: -94px;
+  }
+}
+@media (min-width: 800px) {
+  #sns #sn {
+    padding-top: 116px;
+    margin-top: -116px;
+  }
+}
+@media (min-width: 600px) {
+  #sns .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 4px;
+  }
+}
+@media (min-width: 600px) {
+  #sns .wrapper .sns-box {
+    width: calc(50% - 4px);
+  }
+}
+
